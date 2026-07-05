@@ -1,0 +1,43 @@
+# Core LangChain ecosystem
+langgraph
+langchain
+langchain-core
+langchain-community
+
+# OpenAI (if using GPT models)
+langchain-openai
+openai
+
+# Anthropic (optional)
+langchain-anthropic
+anthropic
+
+# Google Gemini (optional)
+langchain-google-genai
+google-generativeai
+
+# Environment variables
+python-dotenv
+
+# HTTP requests
+requests
+httpx
+
+# Data validation
+pydantic
+
+# Token counting
+tiktoken
+
+# Logging / utilities
+rich
+
+# Retry utilities
+tenacity
+
+# Async support
+aiohttp
+
+# Notebook support (optional)
+jupyter
+ipykernel
