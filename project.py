@@ -35,7 +35,7 @@ def scriptwriter_node(state: pipelinestate) -> dict:
 def translator_node(state: pipelinestate) -> dict:
     """Stage 3: Translates the script into Hinglish."""
 
-    prompt = ("You are a professional expert content localizer for the indian market. You will be given a text and your task is to translate it into Hinglish. Conversion must feel very natural, flowing 'Hinglish. Do not simply translate or repeat the information.Alternating comfortably betwqeen Hindi and English. Please provide the translated version of the text. While keeping the core message intact, return only the translated text.\n\n"f"Text: \n{state['script_text']}")
+    prompt = ("You are a professional expert content localizer for the indian market. You will be given a text and your task is to translate it into Hinglish. Conversion must feel very natural, flowing 'Hinglish. Do not simply translate or repeat the information.Alternating comfortably betwqeen Hindi and English. Please provide the translated version of the text. While keeping the core message intact, return only the translated text (return only the translated text in english(literature)).\n\n"f"Text: \n{state['script_text']}")
     response = llm.invoke(prompt)
     return {"final_output": response.content.strip()}
 
@@ -54,6 +54,7 @@ state_graph.add_edge("translator", END)
 
 #compile the graph to check for any errors
 app = state_graph.compile()
-res = app.invoke({"raw_input": "Hello, I am a software engineer. I love to code and solve problems. I am always looking for new challenges and opportunities to learn and grow."})
+p = input("Prompt : ")
+res = app.invoke({"raw_input": p})
 print("Your results are", res["final_output"])
 
